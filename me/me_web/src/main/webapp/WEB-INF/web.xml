@@ -15,7 +15,6 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
-	<!-- 设置延迟加载filter -->
 	<!-- 配置延迟加载的filter -->
 	<filter>
 		<filter-name>openSessionFilter</filter-name>

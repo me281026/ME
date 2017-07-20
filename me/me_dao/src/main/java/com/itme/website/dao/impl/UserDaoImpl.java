@@ -1,6 +1,5 @@
 package com.itme.website.dao.impl;
 
-import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -12,7 +11,7 @@ import com.itme.website.dao.IUserDao;
 import com.itme.website.domain.Customer;
 import com.itme.website.domain.User;
 
-@Repository("userDAO")
+@Repository("userDao")
 public class UserDaoImpl extends HibernateDaoSupport implements IUserDao {
 	
 	@Resource(name="sessionFactory")
@@ -22,8 +21,8 @@ public class UserDaoImpl extends HibernateDaoSupport implements IUserDao {
 
 	@SuppressWarnings("all")
 	@Override
-	public List<User> getUser(String username, String password) {
-		return (List<User>) this.getHibernateTemplate().find("from User u where u.username = ? and u.password = ?", new String[]{username,password});
+	public User getUser(String username, String password) {
+		return (User) this.getHibernateTemplate().find("from User u where u.username = ? and u.password = ?", new String[]{username,password}).iterator().next();
 	}
 
 	@Override

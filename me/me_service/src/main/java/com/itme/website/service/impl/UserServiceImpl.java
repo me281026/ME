@@ -1,6 +1,5 @@
 package com.itme.website.service.impl;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,8 +16,8 @@ import com.itme.website.service.IUserService;
 public class UserServiceImpl implements IUserService {
 	
 	@Autowired
-	@Qualifier("userDAO")
-	private IUserDao userDAO;
+	@Qualifier("userDao")
+	private IUserDao userDao;
 	
 
 	/**
@@ -27,9 +26,9 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public User getUser(String username, String password) {
 		//获取用户
-		List<User> users = userDAO.getUser(username, password);
-		if( users != null && users.size() == 1 ) {
-			return users.get(0);
+		User users = userDao.getUser(username, password);
+		if( users != null ) {
+			return users;
 		}
 		return null;
 	}
@@ -39,12 +38,11 @@ public class UserServiceImpl implements IUserService {
 	 */
 	@Override
 	public Customer getCustomer(User u) {
-		Customer customer = userDAO.getCustomer(u);
+		Customer customer = userDao.getCustomer(u);
 		if(customer != null) {
 			return customer;
-		}else {
-			return null;
 		}
+		return null;
 	}
 
 }

@@ -20,7 +20,7 @@ import com.itme.website.service.IUserService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-@Controller
+@Controller("userAction")
 @Scope("prototype")
 @Namespace("/")
 @ParentPackage("struts-default")
@@ -46,10 +46,9 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 		return user;
 	}
 	
-	@Action(value="login",results={@Result(name="success",type="redirect",location="/index.html"),
+	@Action(value="login",results={@Result(name="success",location="/index.html"),
 			@Result(name="error",location="/error.html")})
 	public String login() {
-		System.out.println("进入action.......");
 		User u = userService.getUser(user.getUsername(), user.getPassword());
 		if( u != null ) {
 			//获取用户,存入session

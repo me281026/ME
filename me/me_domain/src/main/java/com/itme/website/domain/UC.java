@@ -1,14 +1,23 @@
 package com.itme.website.domain;
 
+
 public class UC {
 	
-	private int status;
+	private Integer id;
+	private Integer status;
 	private User user;
 	private Customer customer;
-	public int getStatus() {
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public Integer getStatus() {
 		return status;
 	}
-	public void setStatus(int status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 	public User getUser() {
