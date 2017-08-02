@@ -4,16 +4,15 @@
 		//点击进行登录操作
 		var username = $("#username").val();
 		var password = $("#password").val();
-		alert(username);
 		//向服务器发送请求
 		//location.href="/me/user/login?username="+username&+"password="+password;
-		$.post("/login",{"username":username,"password":password},function(data) {
-			var jr = eval(data);
+		$.post("/user_login",{"username":username,"password":password},function(data) {
+			/*var jr = eval(data);
 			//var jr = data;
 			alert(jr);
 			alert(jr.status);
 			//登录成功
-			/*if(jr.status == 1) {
+			if(jr.status == 1) {
 				alert("恭喜你,登录成功!")
 				location.href="http://localhost:8080/person/index.html";
 			}*/
